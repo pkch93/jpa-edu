@@ -4,16 +4,16 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "post")
-class PostK(
+class Post(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    var id: Long,
 
     @Column
-    val title: String,
+    var title: String,
 
     @Lob @Column
-    val contents: String,
+    var contents: String,
 
     @ManyToOne
-    val member: MemberK
+    var member: Member
 )

@@ -12,3 +12,6 @@ pluginManagement {
         id("io.spring.dependency-management") version springDependencyManagementVersion
     }
 }
+
+include("java-jpa")
+include("kotlin-jpa")

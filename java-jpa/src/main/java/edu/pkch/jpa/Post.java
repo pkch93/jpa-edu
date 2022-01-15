@@ -18,11 +18,11 @@ public class Post {
     private String content;
 
     @ManyToOne
-    private MemberK member;
+    private Member member;
 
     protected Post() {}
 
-    public Post(String title, String content, MemberK member) {
+    public Post(String title, String content, Member member) {
         this.title = title;
         this.content = content;
         this.member = member;
