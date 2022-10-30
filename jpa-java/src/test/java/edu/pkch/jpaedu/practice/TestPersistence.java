@@ -2,6 +2,8 @@ package edu.pkch.jpaedu.practice;
 
 import java.util.Map;
 
+import static edu.pkch.jpaedu.practice.JpaEduTest.MYSQL_ROOT_PASSWORD;
+
 public class TestPersistence {
 
     private final PersistenceContainer persistenceContainer;
@@ -11,7 +13,7 @@ public class TestPersistence {
                 "jakarta.persistence.jdbc.driver", "com.mysql.cj.jdbc.Driver",
                 "jakarta.persistence.jdbc.url", jdbcUrl,
                 "jakarta.persistence.jdbc.user", "root",
-                "jakarta.persistence.jdbc.password", "12345678"
+                "jakarta.persistence.jdbc.password", MYSQL_ROOT_PASSWORD
         );
 
         Map<String, Object> hibernateProperties = Map.of(
