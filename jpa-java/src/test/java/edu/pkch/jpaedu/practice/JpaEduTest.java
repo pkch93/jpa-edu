@@ -14,7 +14,7 @@ public abstract class JpaEduTest {
     protected static TestPersistence testPersistence;
 
     @Container
-    private static GenericContainer<?> mysql = new GenericContainer<>(
+    private static final GenericContainer<?> MYSQL_CONTAINER = new GenericContainer<>(
             DockerImageName.parse("mysql").withTag("8.0.31")
     )
             .withEnv("MYSQL_ROOT_PASSWORD", "12345678")
@@ -23,7 +23,14 @@ public abstract class JpaEduTest {
 
     @BeforeAll
     static void beforeAll() {
-        String jdbcUrl = "jdbc:mysql://localhost:%d/%s?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8&serverTimezone=Asia/Seoul".formatted(mysql.getFirstMappedPort(), MYSQL_DATABASE);
+        String jdbcUrl =
+            """
+            jdbc:mysql://localhost:%d/%s?\
+            useSSL=false&\
+            allowPublicKeyRetrieval=true&\
+            characterEncoding=utf8&\
+            serverTimezone=Asia/Seoul\
+            """.formatted(MYSQL_CONTAINER.getFirstMappedPort(), MYSQL_DATABASE);
         testPersistence = new TestPersistence(jdbcUrl);
     }
 }
