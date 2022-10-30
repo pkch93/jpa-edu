@@ -1,5 +1,7 @@
 package edu.pkch.jpaedu.practice;
 
+import jakarta.persistence.EntityManager;
+
 import java.util.Map;
 
 import static edu.pkch.jpaedu.practice.JpaEduTest.MYSQL_ROOT_PASSWORD;
@@ -23,5 +25,13 @@ public class TestPersistence {
         );
 
         persistenceContainer = new PersistenceContainer(jpaProperties, hibernateProperties);
+    }
+
+    public EntityManager entityManager() {
+        return persistenceContainer.entityManager();
+    }
+
+    public void close() {
+        persistenceContainer.close();
     }
 }

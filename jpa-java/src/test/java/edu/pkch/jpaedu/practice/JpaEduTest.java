@@ -1,5 +1,6 @@
 package edu.pkch.jpaedu.practice;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -32,5 +33,10 @@ public abstract class JpaEduTest {
             serverTimezone=Asia/Seoul\
             """.formatted(MYSQL_CONTAINER.getFirstMappedPort(), MYSQL_DATABASE);
         testPersistence = new TestPersistence(jdbcUrl);
+    }
+
+    @AfterAll
+    static void afterAll() {
+        testPersistence.close();
     }
 }
