@@ -35,4 +35,20 @@ public class Post {
     public Long getId() {
         return id;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public List<PostHashTag> getHashTags() {
+        return hashTags;
+    }
 }
