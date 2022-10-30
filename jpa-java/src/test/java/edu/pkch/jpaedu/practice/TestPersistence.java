@@ -2,11 +2,11 @@ package edu.pkch.jpaedu.practice;
 
 import java.util.Map;
 
-public class TestEntityManager {
+public class TestPersistence {
 
     private final PersistenceContainer persistenceContainer;
 
-    public TestEntityManager(String jdbcUrl) {
+    public TestPersistence(String jdbcUrl) {
         Map<String, Object> jpaProperties = Map.of(
                 "jakarta.persistence.jdbc.driver", "com.mysql.cj.jdbc.Driver",
                 "jakarta.persistence.jdbc.url", jdbcUrl,
@@ -22,5 +22,4 @@ public class TestEntityManager {
 
         persistenceContainer = new PersistenceContainer(jpaProperties, hibernateProperties);
     }
-
 }
